@@ -46,12 +46,13 @@ def insert_milk_data(farmer_id, quantity, reading, price_per_liter,total_amount)
     except Exception as e:
         conn.close()
         return f"failure: {str(e)}"
-    
+        
+# SUM(m.totalAmount) as totalAmount
 # Fetch data for the selected month and year
 def fetch_monthly_report(year, month, farmer_id):
     conn = sqlite3.connect('milk_collection_system.db')
     query = f'''
-        SELECT m.farmerId, f.farmerName, SUM(m.totalAmount) as totalAmount
+        SELECT m.farmerId, f.farmerName, m.totalAmount
         FROM MILKCOLLECTION m
         JOIN FARMER f ON m.farmerId = f.farmer_id
         WHERE strftime('%Y', m.date) = ? AND strftime('%m', m.date) = ? AND f.farmer_id = ?
