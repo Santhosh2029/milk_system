@@ -176,6 +176,7 @@ def home_page():
                 st.write(f"No data found for {year}-{month}. Farmer ID: {farmer_ids}")
             else:
                 st.dataframe(df,use_container_width=True, hide_index =True)
+                st.write(f"Total : {round(df['totalAmount'].sum(),2)}")
       
         elif slide == "Logout":
             st.write("Logged out successfully.")
