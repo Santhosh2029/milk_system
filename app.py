@@ -89,7 +89,7 @@ def home_page():
                         status = insert_new_farmer(farmer_name, contact_info)
                         if status == 'success':
                             st.success("Farmer registered successfully!")
-                            time.sleep(1)
+                            time.sleep(5)
                             st.rerun()  # Rerun after successful submission
                         else:
                             st.error("Failed to register farmer. Please try again.")
@@ -143,7 +143,7 @@ def home_page():
                             status = insert_milk_data(farmer_id, quantity, reading, price_per_liter,total_amount)
                             if status == 'success':
                                 st.success("Milk collection data added successfully!")
-                                time.sleep(2)
+                                time.sleep(5)
                                 st.rerun()  # Rerun after successful submission
                             else:
                                 st.error("Failed to add data. Please try again.")
