@@ -213,6 +213,7 @@ def main():
                     if data:
                         st.session_state.logged_in = True
                         st.success("Logged in successfully!")
+                        time.sleep(4)
                         st.rerun()
                     else:
                         st.error("Incorrect username or password.")
